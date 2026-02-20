@@ -1,5 +1,19 @@
 [gd_scene format=3 uid="uid://di8ki1nbl6tq2"]
 
+[ext_resource type="Script" uid="uid://dens7i054ga7b" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vue75"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.21411544, 0.49288929, 0.61137986, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [node name="Main Menu" type="Control" unique_id=1630492296]
 layout_mode = 3
 anchors_preset = 15
@@ -7,11 +21,61 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_l6cm7")
 
-[node name="Panel" type="Panel" parent="." unique_id=230372432]
+[node name="Label" type="Label" parent="." unique_id=103693404]
+z_index = 1
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -338.0
+offset_top = -157.0
+offset_right = 337.0
+offset_bottom = -28.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 45
+text = "Untitled Cheese
+Collecting Game"
+horizontal_alignment = 1
+
+[node name="Background" type="Panel" parent="." unique_id=230372432]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_vue75")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1560964162]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = 8.0
+offset_right = 112.0
+offset_bottom = 92.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 7
+
+[node name="Start" type="Button" parent="VBoxContainer" unique_id=1442567851]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "START"
+
+[node name="Exit" type="Button" parent="VBoxContainer" unique_id=116305372]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "EXIT"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_start_pressed"]

@@ -199,19 +199,18 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
-size = Vector2(16, 22)
+size = Vector2(16, 21)
 
 [node name="Mouse" type="CharacterBody2D" unique_id=104593806]
+z_index = 1
 collision_layer = 2
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=293491173]
 sprite_frames = SubResource("SpriteFrames_tuyoq")
-animation = &"jump_and_fall"
+animation = &"idle"
 autoplay = "idle"
-frame = 9
-frame_progress = 0.61894184
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2136210640]
-position = Vector2(-1, -1)
+position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_fjrip")

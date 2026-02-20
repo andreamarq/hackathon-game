@@ -2,12 +2,50 @@
 
 [ext_resource type="Texture2D" uid="uid://cvf06jgyintpi" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dcwlrkats3qac" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://dl3acqxfv4aqb" path="res://scenes/mouse_NPC.tscn" id="2_0tnpc"]
 [ext_resource type="PackedScene" uid="uid://d22thxaxqk77i" path="res://scenes/fly_enemy.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dwih6dqjwj1p6" path="res://scenes/cockroach_enemy.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://brnium8i7tff" path="res://scenes/cheese.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://dxl3gas3752c8" path="res://scenes/left_boundary.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bgpx77nwch7sf" path="res://scenes/goldfish_platform.tscn" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b2sgtlwkaxrk1" path="res://scenes/right_boundary.tscn" id="4_lbhrr"]
+
+[sub_resource type="Animation" id="Animation_0tnpc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(148, -6)]
+}
+
+[sub_resource type="Animation" id="Animation_vtaks"]
+resource_name = "moving"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(148, -6), Vector2(148, -40)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvpfn"]
+_data = {
+&"RESET": SubResource("Animation_0tnpc"),
+&"moving": SubResource("Animation_vtaks")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
 texture = ExtResource("1_uwrxv")
@@ -315,15 +353,24 @@ zoom = Vector2(3.5, 3.5)
 limit_left = -200
 limit_right = 200
 
-[node name="Fly" parent="." unique_id=112360159 instance=ExtResource("2_p57ef")]
-position = Vector2(70, 19)
-
-[node name="Cockroach" parent="." unique_id=1124092499 instance=ExtResource("3_gee14")]
-position = Vector2(-122, 23)
+[node name="Mouse NPC" parent="." unique_id=331682177 instance=ExtResource("2_0tnpc")]
+position = Vector2(84, 23)
 
 [node name="Goldfish" parent="." unique_id=283769330 instance=ExtResource("3_u5sy4")]
 z_index = 1
 position = Vector2(109, -35)
+
+[node name="Enemies" type="Node" parent="." unique_id=1342949019]
+
+[node name="Fly" parent="Enemies" unique_id=112360159 instance=ExtResource("2_p57ef")]
+position = Vector2(148, -6)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Enemies/Fly" unique_id=350137857]
+libraries/ = SubResource("AnimationLibrary_kvpfn")
+autoplay = &"moving"
+
+[node name="Cockroach" parent="Enemies" unique_id=1124092499 instance=ExtResource("3_gee14")]
+position = Vector2(161, 23)
 
 [node name="Cheese" type="Node" parent="." unique_id=714172992]
 

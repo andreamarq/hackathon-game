@@ -40,7 +40,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gr1jf"]
-size = Vector2(21, 11)
+size = Vector2(21, 12)
 
 [node name="Cockroach" type="Node2D" unique_id=1124092499]
 z_index = 1
@@ -53,5 +53,5 @@ autoplay = "idle"
 [node name="Kill Zone" parent="." unique_id=1384225079 instance=ExtResource("2_7f7bl")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Zone" unique_id=1892252262]
-position = Vector2(3.5, 3.5)
+position = Vector2(3.5, 4)
 shape = SubResource("RectangleShape2D_gr1jf")

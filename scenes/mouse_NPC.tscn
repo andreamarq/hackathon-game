@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dl3acqxfv4aqb"]
+
+[ext_resource type="Texture2D" uid="uid://b2ldc6oh0fu8k" path="res://assets/grey_npc_mouse_idle.png" id="1_43j5m"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2odi"]
+atlas = ExtResource("1_43j5m")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcgy5"]
+atlas = ExtResource("1_43j5m")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_11oqq"]
+atlas = ExtResource("1_43j5m")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vf4fp"]
+atlas = ExtResource("1_43j5m")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_63gk4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2odi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcgy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_11oqq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vf4fp")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k52do"]
+size = Vector2(16, 21)
+
+[node name="Mouse NPC" type="Area2D" unique_id=331682177]
+z_index = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=574706134]
+sprite_frames = SubResource("SpriteFrames_63gk4")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=374622188]
+position = Vector2(-1, -1.5)
+shape = SubResource("RectangleShape2D_k52do")

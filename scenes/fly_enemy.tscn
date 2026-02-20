@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://d22thxaxqk77i"]
+
+[ext_resource type="Texture2D" uid="uid://jkdx2q123d0c" path="res://assets/fly_.png" id="1_djddo"]
+[ext_resource type="PackedScene" uid="uid://c2hq6nloen7jg" path="res://scenes/killzone.tscn" id="2_xr3pu"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xr3pu"]
+atlas = ExtResource("1_djddo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2lkvx"]
+atlas = ExtResource("1_djddo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sgyng"]
+atlas = ExtResource("1_djddo")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qovp"]
+atlas = ExtResource("1_djddo")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eyt7k"]
+atlas = ExtResource("1_djddo")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eswn2"]
+atlas = ExtResource("1_djddo")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_swjup"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xr3pu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2lkvx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sgyng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qovp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eyt7k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eswn2")
+}],
+"loop": true,
+"name": &"moving",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_djddo"]
+radius = 9.0
+
+[node name="Fly" type="Node2D" unique_id=112360159]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=753010963]
+sprite_frames = SubResource("SpriteFrames_swjup")
+animation = &"moving"
+autoplay = "moving"
+frame_progress = 0.7947682
+
+[node name="Kill Zone" parent="." unique_id=1384225079 instance=ExtResource("2_xr3pu")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Zone" unique_id=405234255]
+position = Vector2(3, 0)
+shape = SubResource("CircleShape2D_djddo")
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=952411919]
+target_position = Vector2(15, 0)
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1442239704]
+target_position = Vector2(-10, 0)

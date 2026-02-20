@@ -23,6 +23,7 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
+	# Determines the sprite animation of the player.
 	if is_on_floor():
 		if direction == 0:
 			animated_sprite_2d.play("idle")
@@ -31,7 +32,7 @@ func _physics_process(delta):
 	else:
 		animated_sprite_2d.play("jump_and_fall")
 		
-		
+	# Determines the direction of the sprite.
 	if direction > 0:
 		animated_sprite_2d.flip_h = true
 	elif direction < 0:

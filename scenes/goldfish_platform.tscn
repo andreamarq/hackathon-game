@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://bgpx77nwch7sf"]
+
+[ext_resource type="Script" uid="uid://cu6no2h6cdwql" path="res://scripts/goldfish_platform.gd" id="1_bmmmn"]
+[ext_resource type="Texture2D" uid="uid://beymaoqwwr8jl" path="res://assets/fish.png" id="1_f1pfx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmmmn"]
+atlas = ExtResource("1_f1pfx")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ss41"]
+atlas = ExtResource("1_f1pfx")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7mto"]
+atlas = ExtResource("1_f1pfx")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eerrf"]
+atlas = ExtResource("1_f1pfx")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ee4b3"]
+atlas = ExtResource("1_f1pfx")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2o0s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmmmn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ss41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7mto")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eerrf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ee4b3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 7.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f1pfx"]
+size = Vector2(31, 14)
+
+[node name="Goldfish" type="AnimatableBody2D" unique_id=283769330]
+collision_mask = 2
+script = ExtResource("1_bmmmn")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1534374212]
+sprite_frames = SubResource("SpriteFrames_k2o0s")
+animation = &"idle"
+autoplay = "idle"
+frame = 2
+frame_progress = 0.18675561
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=831825452]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_f1pfx")

@@ -49,7 +49,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_eswn2")
 }],
 "loop": true,
-"name": &"moving",
+"name": &"idle",
 "speed": 10.0
 }]
 
@@ -60,9 +60,8 @@ radius = 9.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=753010963]
 sprite_frames = SubResource("SpriteFrames_swjup")
-animation = &"moving"
-autoplay = "moving"
-frame_progress = 0.7947682
+animation = &"idle"
+autoplay = "idle"
 
 [node name="Kill Zone" parent="." unique_id=1384225079 instance=ExtResource("2_xr3pu")]
 

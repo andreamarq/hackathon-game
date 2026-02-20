@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://d22thxaxqk77i" path="res://scenes/fly_enemy.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://brnium8i7tff" path="res://scenes/cheese.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://dxl3gas3752c8" path="res://scenes/left_boundary.tscn" id="3_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bgpx77nwch7sf" path="res://scenes/goldfish_platform.tscn" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://b2sgtlwkaxrk1" path="res://scenes/right_boundary.tscn" id="4_lbhrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yqjtg"]
@@ -316,6 +317,10 @@ limit_right = 200
 [node name="Fly" parent="." unique_id=112360159 instance=ExtResource("2_p57ef")]
 z_index = 1
 position = Vector2(70, 19)
+
+[node name="Goldfish" parent="." unique_id=283769330 instance=ExtResource("3_u5sy4")]
+z_index = 1
+position = Vector2(109, -35)
 
 [node name="Cheese" type="Node" parent="." unique_id=714172992]
 

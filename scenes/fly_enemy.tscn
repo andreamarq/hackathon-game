@@ -57,6 +57,7 @@ animations = [{
 radius = 9.0
 
 [node name="Fly" type="Node2D" unique_id=112360159]
+z_index = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=753010963]
 sprite_frames = SubResource("SpriteFrames_swjup")
@@ -68,9 +69,3 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Zone" unique_id=405234255]
 position = Vector2(3, 0)
 shape = SubResource("CircleShape2D_djddo")
-
-[node name="RayCastRight" type="RayCast2D" parent="." unique_id=952411919]
-target_position = Vector2(15, 0)
-
-[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=1442239704]
-target_position = Vector2(-10, 0)

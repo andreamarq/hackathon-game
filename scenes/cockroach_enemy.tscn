@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://dwih6dqjwj1p6"]
+
+[ext_resource type="Texture2D" uid="uid://cppo4hexo42wn" path="res://assets/cockroach_v2.png" id="1_kn7o1"]
+[ext_resource type="PackedScene" uid="uid://c2hq6nloen7jg" path="res://scenes/killzone.tscn" id="2_7f7bl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gfwlf"]
+atlas = ExtResource("1_kn7o1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dxcn"]
+atlas = ExtResource("1_kn7o1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3asle"]
+atlas = ExtResource("1_kn7o1")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elh0j"]
+atlas = ExtResource("1_kn7o1")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_77dds"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gfwlf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dxcn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3asle")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elh0j")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gr1jf"]
+size = Vector2(21, 11)
+
+[node name="Cockroach" type="Node2D" unique_id=1124092499]
+z_index = 1
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=453690]
+sprite_frames = SubResource("SpriteFrames_77dds")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="Kill Zone" parent="." unique_id=1384225079 instance=ExtResource("2_7f7bl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Kill Zone" unique_id=1892252262]
+position = Vector2(3.5, 3.5)
+shape = SubResource("RectangleShape2D_gr1jf")

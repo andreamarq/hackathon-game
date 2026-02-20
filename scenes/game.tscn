@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cvf06jgyintpi" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dcwlrkats3qac" path="res://scenes/player.tscn" id="1_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://d22thxaxqk77i" path="res://scenes/fly_enemy.tscn" id="2_p57ef"]
+[ext_resource type="PackedScene" uid="uid://dwih6dqjwj1p6" path="res://scenes/cockroach_enemy.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://brnium8i7tff" path="res://scenes/cheese.tscn" id="3_iywne"]
 [ext_resource type="PackedScene" uid="uid://dxl3gas3752c8" path="res://scenes/left_boundary.tscn" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bgpx77nwch7sf" path="res://scenes/goldfish_platform.tscn" id="3_u5sy4"]
@@ -315,8 +316,10 @@ limit_left = -200
 limit_right = 200
 
 [node name="Fly" parent="." unique_id=112360159 instance=ExtResource("2_p57ef")]
-z_index = 1
 position = Vector2(70, 19)
+
+[node name="Cockroach" parent="." unique_id=1124092499 instance=ExtResource("3_gee14")]
+position = Vector2(-122, 23)
 
 [node name="Goldfish" parent="." unique_id=283769330 instance=ExtResource("3_u5sy4")]
 z_index = 1

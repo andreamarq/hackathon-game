@@ -26,6 +26,7 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		animation_player.play("jump")
 		velocity.y = JUMP_VELOCITY
 		
 	# Get the input direction and handle the movement/deceleration.
@@ -44,7 +45,6 @@ func _physics_process(delta):
 			animated_sprite_2d.play("run")
 	else:
 		animated_sprite_2d.play("jump_and_fall")
-		animation_player.play("jump sfx")
 		
 	# Determines the direction of the sprite.
 	if direction > 0:

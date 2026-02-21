@@ -5,11 +5,12 @@ const SPEED = 130.0
 const JUMP_VELOCITY = -350.0
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var animation_player = $AnimationPlayer
 
 func death():
 	print("ow!")
 	await get_tree().create_timer(0.5).timeout
-	respawn()
+	animation_player.play("death")
 
 # Respawn function.
 func respawn():

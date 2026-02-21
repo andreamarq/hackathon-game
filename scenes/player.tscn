@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://5s7iedy182kr" path="res://assets/mouse_idle.png" id="2_qhqgy"]
 [ext_resource type="Texture2D" uid="uid://7vw2mk702mq1" path="res://assets/mouse_run_V2.png" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://mlu1oh3jgjyh" path="res://assets/mouse_jump_and_fall.png" id="3_qlg0r"]
+[ext_resource type="AudioStream" uid="uid://bnkrlfasusahg" path="res://assets/audio/sound effects/death.wav" id="5_qlg0r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qlg0r"]
 atlas = ExtResource("2_qhqgy")
@@ -201,6 +202,56 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fjrip"]
 size = Vector2(16, 21)
 
+[sub_resource type="Animation" id="Animation_tuyoq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Death:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "death"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Death:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"respawn"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_smehm"]
+_data = {
+&"RESET": SubResource("Animation_tuyoq"),
+&"death": SubResource("Animation_fjrip")
+}
+
 [node name="Mouse" type="CharacterBody2D" unique_id=104593806]
 z_index = 1
 collision_layer = 2
@@ -214,3 +265,9 @@ autoplay = "idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2136210640]
 position = Vector2(-1, -1.5)
 shape = SubResource("RectangleShape2D_fjrip")
+
+[node name="Death" type="AudioStreamPlayer" parent="." unique_id=1934973605]
+stream = ExtResource("5_qlg0r")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1720890471]
+libraries/ = SubResource("AnimationLibrary_smehm")

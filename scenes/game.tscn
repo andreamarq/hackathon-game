@@ -1,8 +1,8 @@
 [gd_scene format=4 uid="uid://be62p3kmalc27"]
 
-[ext_resource type="Script" uid="uid://gfcv65jpidfp" path="res://scripts/game.gd" id="1_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://cvf06jgyintpi" path="res://assets/brackeys_platformer_assets/sprites/world_tileset.png" id="1_uwrxv"]
 [ext_resource type="PackedScene" uid="uid://dcwlrkats3qac" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="Script" uid="uid://ba5isdehxlryc" path="res://scripts/game_manager.gd" id="2_kvuet"]
 [ext_resource type="PackedScene" uid="uid://d22thxaxqk77i" path="res://scenes/fly_enemy.tscn" id="2_p57ef"]
 [ext_resource type="PackedScene" uid="uid://dwih6dqjwj1p6" path="res://scenes/cockroach_enemy.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://brnium8i7tff" path="res://scenes/cheese.tscn" id="3_iywne"]
@@ -725,7 +725,10 @@ sources/2 = SubResource("TileSetAtlasSource_kvpfn")
 sources/3 = SubResource("TileSetAtlasSource_trtic")
 
 [node name="Game" type="Node2D" unique_id=486770811]
-script = ExtResource("1_0tnpc")
+
+[node name="GameManager" type="Node" parent="." unique_id=1349806340]
+unique_name_in_owner = true
+script = ExtResource("2_kvuet")
 
 [node name="Player Character" parent="." unique_id=104593806 instance=ExtResource("1_yqjtg")]
 z_index = 5

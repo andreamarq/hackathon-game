@@ -368,8 +368,10 @@ z_index = 5
 position = Vector2(145, 19)
 
 [node name="Camera2D" type="Camera2D" parent="Player Character" unique_id=274289355]
-position = Vector2(1, -24)
+position = Vector2(-11, -21)
 zoom = Vector2(3, 3)
+limit_left = 75
+limit_right = 1520
 limit_bottom = 75
 
 [node name="Goldfish" parent="." unique_id=283769330 instance=ExtResource("3_u5sy4")]
@@ -423,7 +425,7 @@ tile_set = SubResource("TileSet_iywne")
 [node name="Boundaries" type="Node" parent="." unique_id=2124889971]
 
 [node name="Left Boundary" parent="Boundaries" unique_id=676863436 instance=ExtResource("3_lnu2h")]
-position = Vector2(-201, -51)
+position = Vector2(75, -51)
 
 [node name="Right Boundary" parent="Boundaries" unique_id=1007244927 instance=ExtResource("4_lbhrr")]
-position = Vector2(1604, -236)
+position = Vector2(1519, -236)
